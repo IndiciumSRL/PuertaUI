@@ -1,0 +1,76 @@
+<div class="col-md-12">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Formulario de Inscripción - Contános de vos!</h3>
+    </div>
+    <div class="panel-body">
+      <form name="subscribeForm" ng-submit="subscribe()" novalidate>
+
+        <div class="form-group col-md-12">
+          <label class="control-label" for="fullname">Nombre Completo:</label>
+          <input class="form-control" type="text" name="fullname" ng-model="formData.fullname" required autofocus>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="control-label" for="email">Email:</label>
+          <input class="form-control" type="email" name="email" ng-model="formData.email" required>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="control-label" for="email">Confirmación Email:</label>
+          <input class="form-control" type="email" name="emailConfirm" ng-model="emailConfirm" required>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="control-label" for="password">Contraseña:</label>
+          <input class="form-control" type="password" name="password" ng-model="formData.password" required>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="control-label" for="passwordConfirm">Confirmación Contraseña:</label>
+          <input class="form-control" type="password" name="passwordConfirm" ng-model="passwordConfirm" required>
+        </div>
+
+        <fieldset class="col-md-12">
+          <legend>
+            Hijos
+          </legend>
+          <ng-form ng-repeat="child in formData.children" name="childForm">
+            <div class="col-md-6" ng-if="$index != 0">
+              <label class="control-label" for="fullname">Nombre:</label>
+              <div class="input-group">
+                <a href="" class="input-group-addon btn-danger" ng-click="removeChild($index)"><i class="fa fa-times"></i></a>
+                <input class="form-control" type="text" name="fullname" ng-model="formData.children[$index].fullname" required>
+              </div>
+            </div>
+            <div class="form-group col-md-6" ng-if="$index == 0">
+              <label class="control-label" for="fullname">Nombre:</label>
+              <input class="form-control" type="text" name="fullname" ng-model="formData.children[$index].fullname" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label" for="unit">Sede:</label>
+              <select class="form-control" name="unit" ng-model="formData.children[$index].unitId" ng-options="unit.id as unit.name for unit in units" required>
+              </select>
+            </div>
+          </ng-form>
+          <a class="btn btn-sm btn-primary pull-right" ng-click="addChild()">
+            <i class="fa fa-plus fa-sm"></i><small>Agregar hijo</small>
+          </a>
+          <hr/>
+        </fieldset>
+
+        <div class="checkbox col-md-12">
+          <label>
+            <input type="checkbox" ng-init="formData.subscribed=true" ng-model="formData.subscribed"> Quiero recibir informaciones por mail
+          </label>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success pull-right" ng-disabled="!subscribeForm.$valid">Inscribirme!</button>
+      </form>      
+    </div>
+  </div>
+
+</div>

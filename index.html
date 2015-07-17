@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="puerta">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+  <link href="app.less" type="text/css" rel="stylesheet/less">
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+</head>
+<body ng-controller="ApplicationController">
+
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/restangular/dist/restangular.js"></script>
+  <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="bower_components/ng-sweetalert-2/SweetAlert.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- JS from Bower Components -->
+  <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+  <!-- Add New Bower Component JS Above -->
+
+
+  <!-- Main App JS -->
+  <script src="app.js"></script>
+  <script src="admin/admin.js"></script>
+  <script src="partial/home/home.js"></script>
+  <script src="directive/puertaTopNavBar/puertaTopNavBar.js"></script>
+  <script src="service/auth.js"></script>
+  <script src="register/register.js"></script>
+  <script src="events/events.js"></script>
+  <script src="photos/photos.js"></script>
+  <script src="partial/about/about.js"></script>
+  <script src="register/partial/register/register.js"></script>
+  <script src="photos/partial/photosAlbums/photosAlbums.js"></script>
+  <script src="photos/partial/photoAlbum/photoAlbum.js"></script>
+  <script src="admin/partial/adminMenu/adminMenu.js"></script>
+  <script src="admin/partial/adminEvents/adminEvents.js"></script>
+  <script src="admin/partial/adminPhotos/adminPhotos.js"></script>
+  <script src="admin/partial/adminAlbumForm/adminAlbumForm.js"></script>
+  <script src="photos/partial/photoSlideshow/photoSlideshow.js"></script>
+  <script src="admin/partial/adminUsers/adminUsers.js"></script>
+  <script src="photos/partial/photoComments/photoComments.js"></script>
+  <!-- Add New Component JS Above -->
+
+  <puerta-top-nav-bar></puerta-top-nav-bar>
+
+  <div>
+    <div id="content" class="container-fluid">
+      <div class="row">
+        <div ng-view>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

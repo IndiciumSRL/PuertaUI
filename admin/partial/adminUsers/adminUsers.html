@@ -1,0 +1,70 @@
+<div class="col-md-12">
+
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+        <form class="form-inline pull-right">
+            <div class="form-group">
+                <label>Permitidos:</label>
+                <select class="form-control" ng-model="searchFilter.approved">
+                    <option value="">Todos</option>
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                <input class="form-control" type="text" placeholder="Búsqueda" ng-model="searchFilter.$">
+            </div>
+            <a href="#/register" class="btn btn-success btn-sm"><i class="fa fa-plus fa-sm"></i> Nuevo</a>
+        </form>
+        <h4>Administración de Usuários</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Hijos</th>
+                    <th>Permiso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users | filter:searchFilter">
+                    <td>{{ user.fullname }}</td>
+                    <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                    <td>
+                        <ol>
+                            <li ng-repeat="child in user.children">
+                                <span class="label label-primary">
+                                    {{ child.fullname }} ( {{ child.unit }} )
+                                </span>
+                            </li>
+                        </ol>
+                    </td>
+                    <td>
+                        {{ user.role }}
+                    </td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" ng-click="remove(user)">
+                            <i class="fa fa-times fa-sm"></i>
+                        </a>
+                        <a class="btn btn-primary btn-sm" ng-click="changeRole(user)">
+                            <i class="fa fa-user-secret fa-sm"></i>
+                        </a>
+                        <a class="btn btn-default btn-sm" ng-hide="user.approved" ng-click="toggleApprove(user)">
+                            <i class="fa fa-unlock fa-sm"></i>
+                        </a>
+                        <a class="btn btn-default btn-sm" ng-show="user.approved" ng-click="toggleApprove(user)">
+                            <i class="fa fa-lock fa-sm"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+</div>

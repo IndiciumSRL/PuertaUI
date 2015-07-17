@@ -1,0 +1,15 @@
+<div class="col-md-12">
+
+    <div>
+        <carousel interval="5000">
+            <slide ng-repeat="slide in album.photos">
+                <img ng-src="/api/v1/album/photo/{{slide.id}}">
+                <div class="carousel-caption">
+                    <h4>Subida por {{slide.user.fullname}}</h4>
+                    <p>{{album.created|date:short}}</p>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+
+</div>

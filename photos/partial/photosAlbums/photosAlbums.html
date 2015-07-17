@@ -1,0 +1,30 @@
+<div class="col-md-12">
+
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+
+      <form class="form-inline pull-right">
+          
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+            <input class="form-control" type="text" placeholder="Buscar" ng-model="searchFilter.title" autofocus>
+          </div>
+
+      </form>
+      <h4>Album por evento</h4>
+
+    </div>
+
+    <div class="panel-body">
+      <div class="list-group">
+        <a ng-href="#/photos/{{ album.id }}" class="list-group-item" ng-repeat="album in albums | filter: searchFilter">
+          <img class="img-responsive img-circle resize" ng-src="/api/v1/album/photo/{{ album.coverUrl }}">
+          <span class="badge">{{ album.photoCount }} Fotos</span>
+          <p>{{ album.title }}</p>
+          <p>{{ album.description }}</p>
+          <p>{{ album.created | date:short }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

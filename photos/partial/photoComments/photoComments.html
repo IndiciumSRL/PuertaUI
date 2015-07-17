@@ -1,0 +1,29 @@
+<div class="col-md-12">
+    
+    <div class="panel panel-default">
+        
+        <div class="panel-heading">
+            <h4>Comentários</h4>
+        </div>
+
+        <div class="panel-body">
+            <ul>
+                <li ng-repeat="comment in comments.comments">
+                    {{comment}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="panel-footer">
+            <form name="commentForm" ng-submit="addComment()">
+                <div class="form-group">
+                    <label>Comentário:</label>
+                    <textarea class="form-control" ng-model="comment" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="!commentForm.$valid">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>

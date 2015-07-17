@@ -1,0 +1,52 @@
+<div class="col-md-12">
+
+<div class="progress col-md-12" ng-if="uploading">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%;">
+    <span class="sr-only">{{ progress }}% Complete</span>
+  </div>
+</div>
+
+<ul ng-if="uploadErrors">
+    <li ng-repeat="filename in uploadErrors">
+        <p class="text-warning">{{ filename }} failed to upload</p>
+    </li>
+</ul>
+
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+        <form class="form-inline pull-right">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                <input class="form-control" type="text" placeholder="Búsqueda" ng-model="searchFilter.$">
+            </div>
+            <a href="#/admin/photos/new" class="btn btn-success btn-sm"><i class="fa fa-plus fa-sm"></i> Nuevo</a>
+        </form>
+        <h4>Albuns de Fotos</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha de creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="album in albums|filter:searcFilter">
+                    <td>{{ album.title }}</td>
+                    <td>{{ album.description }}</td>
+                    <td>{{ album.created | date:short }}</td>
+                    <td>
+                        <a href="" class="btn btn-danger btn-sm"><i class="fa fa-times fa-sm"></i></a>
+                        <a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-sm"></i></a>
+                        <button class="btn btn-default btn-sm" ngf-select ngf-change="upload(album.id, $files)" ngf-allow-dir="true" ngf-accept="'image/*'" ngf-multiple="true" ng-disabled="uploading"><i class="fa fa-upload fa-sm"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>

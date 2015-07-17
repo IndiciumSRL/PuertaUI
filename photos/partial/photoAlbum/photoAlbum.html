@@ -1,0 +1,30 @@
+<div class="col-md-12">
+
+    <div class="page-header">
+        <a class="btn btn-success pull-right"><i class="fa fa-download"></i> Bajar Album</a>
+        <h1>{{ album.title }} <small>{{ album.description }}</small></h1>
+    </div>
+
+    <div deckgrid source="photos" class="deckgrid">
+        <div class="thumbnail">
+            <a ng-href="#/photos/view/{{mother.album.id}}/{{card.id}}">
+                <img alt="" ng-src="/api/v1/album/photo/{{card.id}}" class="img-rounded">
+            </a>
+            <div class="caption">
+                <p class="text-center">
+                    Subida en {{ card.created |date:short }} por <em>{{ card.user.fullname }}</em>
+                </p>
+                <p class="text-center">
+                    <a href="" class="btn btn-default btn-sm" role="button" ng-hide="card.liked" ng-click="mother.likeToggle(card)"><i class="fa fa-thumbs-o-up fa-sm"></i> Favorita ({{card.likes_count}})</a>
+                    <a href="" class="btn btn-danger btn-sm" role="button" ng-show="card.liked" ng-click="mother.likeToggle(card)"><i class="fa fa-thumbs-down fa-sm"></i> Quitar favorita ({{card.likes_count}})</a>
+                    <a href="#/photos/comments/{{card.id}}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-comments-o fa-sm"></i> Comentários ({{card.comments_count}})</a>
+                </p>
+            </div>
+        </div>
+        <!--<div class="a-card">
+            <img src="" ng-src="{{card.src}}">
+            <h1>{{card.title}}</h1>
+        </div>-->
+    </div>
+
+</div>
