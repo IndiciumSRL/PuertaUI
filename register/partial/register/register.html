@@ -38,14 +38,14 @@
           </legend>
           <ng-form ng-repeat="child in formData.children" name="childForm">
             <div class="col-md-6" ng-if="$index != 0">
-              <label class="control-label" for="fullname">Nombre:</label>
+              <label class="control-label" for="fullname">Nombre Completo:</label>
               <div class="input-group">
                 <a href="" class="input-group-addon btn-danger" ng-click="removeChild($index)"><i class="fa fa-times"></i></a>
                 <input class="form-control" type="text" name="fullname" ng-model="formData.children[$index].fullname" required>
               </div>
             </div>
             <div class="form-group col-md-6" ng-if="$index == 0">
-              <label class="control-label" for="fullname">Nombre:</label>
+              <label class="control-label" for="fullname">Nombre Completo:</label>
               <input class="form-control" type="text" name="fullname" ng-model="formData.children[$index].fullname" required>
             </div>
             <div class="form-group col-md-6">
@@ -62,11 +62,17 @@
 
         <div class="checkbox col-md-12">
           <label>
-            <input type="checkbox" ng-init="formData.subscribed=true" ng-model="formData.subscribed"> Quiero recibir informaciones por mail
+            <input type="checkbox" ng-init="formData.subscribed=true" ng-model="formData.subscribed"> Quiero recibir el newsletter de la Comunidad de Padres
           </label>
+          <span class="help-block">A través del newsletter informamos sobre las actividades y eventos organizados por la <em>Comunidad</em> (poca cantidad de mails).</span>
         </div>
 
-
+        <div class="checkbox col-md-12">
+          <label>
+            <input type="checkbox" ng-init="formData.google=false" ng-model="formData.google"> Quiero pertenecer a la lista de discusión de la Comunidad de Padres
+          </label>
+          <span class="help-block">Aquí todos los padres pueden sugerir y discutir sobre temas relevantes para la Comunidad así como también colaborar en la organización de las mismas siempre dentro de la <a href="#">política de comportamiento</a> (mediana cantidad de mails).</span>
+        </div>
 
         <button type="submit" class="btn btn-success pull-right" ng-disabled="!subscribeForm.$valid">Inscribirme!</button>
       </form>      

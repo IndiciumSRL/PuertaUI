@@ -1,4 +1,4 @@
-angular.module('register').controller('RegisterCtrl',function($scope, Restangular, units){
+angular.module('register').controller('RegisterCtrl',function($scope, Restangular, units, sweetAlert, $location){
 
     $scope.formData = {};
     $scope.formData.children = [{}];
@@ -16,10 +16,11 @@ angular.module('register').controller('RegisterCtrl',function($scope, Restangula
         Restangular.all('register').post($scope.formData)
             .then(
                 function() {
-
+                    sweetAlert.swal('Inscripto!', 'Estás "casi" inscripto! Esperá que un administrador corroborre tus datos y te de de alta!', 'success');
+                    $location.path('/');
                 },
                 function() {
-
+                    sweetAlert.swal('Error!', 'Ya estarás inscripto?', 'error');
                 }
         );
     };
